@@ -42,18 +42,17 @@ sub invert($)
             $rp->[$j] /= $pe;
         }
         $rp->[$pp] = 1.0 / $pe;
-        p $m;
-        p $det;
-        #exit;
     }
-
     return ($pe != 0.0, $det);
 }
 
 my $matrix = [[2,5],[1,3]];
 my ($success, $det ) = invert( $matrix );
 
-p $success;
-p $det;
+if ( $success ) {
+    say "Determinant: ",  $det;
+    say "Iverted matrix: ";
+    p $matrix;
+}
 
 
